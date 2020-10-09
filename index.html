@@ -45,7 +45,7 @@
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul> 
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id = "loginButton">
                     <span class="fa fa-sign-in"></span> Login</a>
                 </span>  
             </div>         
@@ -130,6 +130,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label  class="col-md-2 col-form-label">Section</label>
+                            <div class=" col-md-10 btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn  btn-success btn-smoking active">
+                                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Non-Smoking
+                                </label>
+                                <label class="btn btn-danger btn-smoking ">
+                                  <input type="radio" name="options" id="option2" autocomplete="off"> Smoking
+                                </label>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label  class="col-md-2 col-form-label">Date and Time</label>
                             <div class="col-md-5">
                                 <input type="text" class="form-control" id="date" name="date" placeholder="Date">
@@ -138,18 +150,7 @@
                                 <input type="text" class="form-control" id="time" name="time" placeholder="Time">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label  class="col-md-2 col-form-label">Section</label>
-                            <div class=" col-md-10 btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn  btn-smoking active">
-                                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Non-Smoking
-                                </label>
-                                <label class="btn btn-smoking ">
-                                  <input type="radio" name="options" id="option2" autocomplete="off"> Smoking
-                                </label>
-                                
-                            </div>
-                        </div>
+                        
                         <div class="form-group row">
                             <div class="offset-md-2 col-md-10">
                                 <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
@@ -175,7 +176,7 @@
 
                 <div class="col-12 col-sm-2 align-self-center">
                     <button type="button" id="smallbtn" class="btn btn-warning btn-block btn-sm"  
-                    data-toggle="modal" data-target="#ReservationModal">Reserve Table</button>
+                    onclick="reserveBtnClick()">Reserve Table</button>
                 </div>
                 
             </div>
@@ -346,6 +347,7 @@
 <script>
     $("#carouselButton").click(function(){
                 if ($("#carouselButton").children("span").hasClass('fa-pause')) {
+                    
                     $("#mycarousel").carousel('pause');
                     $("#carouselButton").children("span").removeClass('fa-pause');
                     $("#carouselButton").children("span").addClass('fa-play');
@@ -355,7 +357,17 @@
                     $("#carouselButton").children("span").removeClass('fa-play');
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
-            });
+    });
+    $("#loginButton").click(function(){
+        
+        $('#loginModal').modal('show');
+    });
+
+    function reserveBtnClick(){
+        
+        $('#ReservationModal').modal('show');
+    }
+
 </script>
 
 </body>
